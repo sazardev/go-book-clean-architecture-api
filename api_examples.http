@@ -1,0 +1,123 @@
+### 🧪 Ejemplos de peticiones HTTP para probar la API
+### Usa la extensión REST Client de VS Code para ejecutar estas peticiones
+
+### Health Check
+GET http://localhost:8080/health
+
+### ========================================
+### 📚 ENDPOINTS DE LIBROS
+### ========================================
+
+### 1. Crear un libro
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "Clean Architecture",
+  "author": "Robert C. Martin"
+}
+
+### 2. Crear otro libro
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "The Go Programming Language",
+  "author": "Alan Donovan"
+}
+
+### 3. Obtener todos los libros
+GET http://localhost:8080/api/books
+
+### 4. Obtener un libro por ID (usar un ID real del paso 1 o 2)
+GET http://localhost:8080/api/books/AQUI_VA_UN_ID_REAL
+
+### 5. Actualizar un libro (usar un ID real)
+PUT http://localhost:8080/api/books/AQUI_VA_UN_ID_REAL
+Content-Type: application/json
+
+{
+  "title": "Clean Architecture - Updated",
+  "author": "Uncle Bob Martin"
+}
+
+### 6. Eliminar un libro (usar un ID real)
+DELETE http://localhost:8080/api/books/AQUI_VA_UN_ID_REAL
+
+### ========================================
+### 👥 ENDPOINTS DE USUARIOS
+### ========================================
+
+### 1. Crear un usuario
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "Juan Pérez",
+  "email": "juan@example.com"
+}
+
+### 2. Crear otro usuario
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "María García",
+  "email": "maria@example.com"
+}
+
+### 3. Obtener todos los usuarios
+GET http://localhost:8080/api/users
+
+### 4. Obtener un usuario por ID (usar un ID real del paso 1 o 2)
+GET http://localhost:8080/api/users/AQUI_VA_UN_ID_REAL
+
+### 5. Actualizar un usuario (usar un ID real)
+PUT http://localhost:8080/api/users/AQUI_VA_UN_ID_REAL
+Content-Type: application/json
+
+{
+  "name": "Juan Carlos Pérez",
+  "email": "juancarlos@example.com"
+}
+
+### 6. Eliminar un usuario (usar un ID real)
+DELETE http://localhost:8080/api/users/AQUI_VA_UN_ID_REAL
+
+### ========================================
+### 🚨 EJEMPLOS DE ERRORES (para ver validaciones)
+### ========================================
+
+### Error: Crear libro sin título
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "",
+  "author": "Algún autor"
+}
+
+### Error: Crear usuario sin email
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "Usuario Sin Email",
+  "email": ""
+}
+
+### Error: Buscar libro que no existe
+GET http://localhost:8080/api/books/id-que-no-existe
+
+### ========================================
+### 📝 INSTRUCCIONES:
+### ========================================
+###
+### 1. Instala la extensión "REST Client" en VS Code
+### 2. Ejecuta el servidor: go run cmd/server/main.go
+### 3. Haz clic en "Send Request" arriba de cada petición
+### 4. Para los endpoints que requieren ID, primero crea un recurso
+###    y copia el ID de la respuesta
+### 5. ¡Experimenta y aprende!
+###
+### ========================================
